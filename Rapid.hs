@@ -60,14 +60,14 @@ module Rapid
     )
     where
 
-import           Control.Concurrent.Async
-import           Control.Concurrent.STM
-import           Control.Exception
-import           Data.Dynamic
-import           Data.Map.Strict (Map)
+import Control.Concurrent.Async
+import Control.Concurrent.STM
+import Control.Exception
+import Data.Dynamic
+import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as M
-import           Data.Word
-import           Foreign.Store
+import Data.Word
+import Foreign.Store
 
 
 -- | Handle to the current Rapid state.
