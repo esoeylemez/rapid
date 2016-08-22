@@ -1,7 +1,7 @@
 name:     rapid
-version:  0.1.0
-category: 
-synopsis: 
+version:  0.1.3
+category: Development
+synopsis: Rapid prototyping with GHCi: hot reloading of running components and reload-surviving values
 
 maintainer:   Ertugrul Söylemez <esz@posteo.de>
 author:       Ertugrul Söylemez <esz@posteo.de>
@@ -11,66 +11,38 @@ bug-reports:  https://github.com/esoeylemez/rapid/issues
 license:      BSD3
 license-file: LICENSE
 
-description: 
+description:  This package provides a rapid prototyping suite for GHCi
+    that can be used standalone or integrated into editors.  You can
+    hot-reload individual running components as you make changes to
+    their code.  It is designed to shorten the development cycle during
+    the development of long-running programs like servers, web
+    applications and interactive user interfaces.
+    .
+    It can also be used in the context of batch-style programs:  Keep
+    resources that are expensive to create in memory and reuse them
+    across module reloads instead of reloading/recomputing them after
+    every code change.
+    .
+    Technically this package is a safe and convenient wrapper around
+    <https://hackage.haskell.org/package/foreign-store foreign-store>.
 
 build-type:         Simple
 cabal-version:      >= 1.10
-extra-source-files: README.md
+extra-source-files: CHANGELOG.md README.md
 
 source-repository head
     type:     git
     location: https://github.com/esoeylemez/rapid.git
 
-flag Devel
-    default: False
-    description: Development dependencies
-    manual: True
-
-flag Examples
-    default: False
-    description: Build the example programs
-    manual: True
-
 
 library
     build-depends:
-        base                >= 4.8 && < 5
-    if flag(devel)
-        build-depends: rapid
+        async               >= 2.1 && < 3,
+        base                >= 4.8 && < 5,
+        containers          >= 0.5 && < 1,
+        foreign-store       >= 0.2 && < 1,
+        stm                 >= 2.4 && < 3
     default-language: Haskell2010
     ghc-options: -W -fdefer-typed-holes
     exposed-modules:
-
-executable rapid
-    build-depends:
-        base                >= 4.8  && < 5,
-        rapid
-    default-language: Haskell2010
-    ghc-options: -W -threaded -fdefer-typed-holes
-    hs-source-dirs: programs
-    main-is: rapid.hs
-
-executable rapid-experiment
-    if flag(examples)
-        build-depends:
-            base >= 4.8 && < 5,
-            rapid
-    else
-        buildable: False
-    default-language: Haskell2010
-    ghc-options: -threaded -fdefer-typed-holes
-    hs-source-dirs: examples
-    main-is: experiment.hs
-
-test-suite tests
-    type: exitcode-stdio-1.0
-    build-depends:
-        base                >= 4.8 && < 5,
-        smallcheck,
-        tasty,
-        tasty-smallcheck,
-        rapid
-    default-language: Haskell2010
-    ghc-options: -W -threaded -with-rtsopts=-N -fdefer-typed-holes
-    hs-source-dirs: tests
-    main-is: Props.hs
+        Rapid
