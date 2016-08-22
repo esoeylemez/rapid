@@ -9,7 +9,7 @@ for dir in $*; do
         cd "$dir"
         git checkout -b master
         sed -i -e "s/SKELETON/$name/g" \
-            README.md NOTICE Setup.lhs skeleton.cabal
+            README.md Setup.lhs skeleton.cabal
         git mv skeleton.cabal "$name.cabal"
         git mv programs/skeleton.hs "programs/$name.hs"
         rm New.sh
