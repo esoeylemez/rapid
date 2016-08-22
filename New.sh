@@ -14,5 +14,6 @@ for dir in $*; do
         git mv programs/skeleton.hs "programs/$name.hs"
         rm New.sh
         git commit -am "Project initialised."
+        git remote rename origin skeleton
     )
 done
