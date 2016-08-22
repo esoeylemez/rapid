@@ -199,7 +199,7 @@ restartWith
     -> IO ()
 restartWith myAsync r k action =
     withThread r k $ \mtv -> do
-        whenJust mtv cancelAndWait
+        mapM_ cancelAndWait mtv
         Just <$> myAsync action
 
 
@@ -248,17 +248,7 @@ startWith myAsync r k action =
 stop :: (Ord k) => Rapid k -> k -> x -> IO ()
 stop r k _ =
     withThread r k $ \mtv ->
-        Nothing <$ whenJust mtv cancelAndWait
-
-
--- | If 'Just', perform the given effect.
---
--- prop> whenJust Nothing  _ = pure ()
--- prop> whenJust (Just x) f = () <$ f x
-
-whenJust :: (Applicative m) => Maybe a -> (a -> m r) -> m ()
-whenJust Nothing  _ = pure ()
-whenJust (Just x) f = () <$ f x
+        Nothing <$ mapM_ cancelAndWait mtv
 
 
 -- | Apply the given transform to the reference with the given name.

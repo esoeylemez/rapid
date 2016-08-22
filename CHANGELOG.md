@@ -2,6 +2,7 @@
 
   * Switched to BSD-3 license.
   * Moved to git.
+  * Simplified implementation.
 
 # 0.1.2
 
