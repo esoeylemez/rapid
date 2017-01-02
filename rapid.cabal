@@ -1,7 +1,8 @@
 name:     rapid
 version:  0.1.3
 category: Development
-synopsis: Rapid prototyping with GHCi: hot reloading of running components and reload-surviving values
+synopsis: Rapid prototyping with GHCi: hot reloading of running
+    components and reload-surviving values
 
 maintainer:   Ertugrul Söylemez <esz@posteo.de>
 author:       Ertugrul Söylemez <esz@posteo.de>
