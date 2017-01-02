@@ -44,6 +44,6 @@ library
         foreign-store       >= 0.2 && < 1,
         stm                 >= 2.4 && < 3
     default-language: Haskell2010
-    ghc-options: -W -fdefer-typed-holes
+    ghc-options: -W
     exposed-modules:
         Rapid
