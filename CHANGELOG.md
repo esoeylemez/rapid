@@ -1,3 +1,8 @@
+# 0.1.4
+
+  * Stricter version bounds.
+  * Minor fixes.
+
 # 0.1.3
 
   * Switched to BSD-3 license.
