@@ -6,7 +6,7 @@ synopsis: Rapid prototyping with GHCi: hot reloading of running
 
 maintainer:   Ertugrul Söylemez <esz@posteo.de>
 author:       Ertugrul Söylemez <esz@posteo.de>
-copyright:    Copyright 2016 Ertugrul Söylemez
+copyright:    Copyright 2018 Ertugrul Söylemez
 homepage:     https://github.com/esoeylemez/rapid
 bug-reports:  https://github.com/esoeylemez/rapid/issues
 license:      BSD3
