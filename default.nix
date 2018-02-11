@@ -2,7 +2,7 @@
 }:
 mkDerivation {
   pname = "rapid";
-  version = "0.1.3";
+  version = "0.1.4";
   src = ./.;
   libraryHaskellDepends = [
     async base containers foreign-store stm
